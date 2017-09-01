@@ -34,7 +34,7 @@ import sys
 # - use `sys.stdout.write()` instead of `print()` since it did not
 #   change syntax during the 2 to 3 transition
 # - do not use `in` and `not in` operators
-# - do not rely on `os` for the `EX_*` error exit codes
+# - do not rely on `os` for the `EX_*` error exit= codes
 # - no use of the `True` and `False` constants
 
 major = (sys.hexversion >> 24)
@@ -52,7 +52,7 @@ non-standard location, then please run this script again through
 the correct 'python' binary.  For example:
 
   /usr/local/bin/python26 %s
-""" % (sys.executable, major, minor, release, sys.argv[0]))
+""" % ("/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python", major, minor, release, sys.argv[0]))
     sys.exit(70) # os.EX_UNAVAILABLE
 
 
@@ -174,7 +174,7 @@ non-standard location, then please run this script again through
 the correct 'python' binary.  For example:
 
         /usr/local/bin/python2.7 {me}
-        """.format(exe=sys.executable,
+        """.format(exe="/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python",
                    major=major, minor=minor, release=release,
                    me=__file__))
 
@@ -347,7 +347,7 @@ In order to proceed, you must take one of the following action:
             shutil.rmtree(target)
 
 
-def create_virtualenv(destdir, python=sys.executable):
+def create_virtualenv(destdir, python="/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python"):
     """
     Create a Python virtual environment into `destdir`.
     """
@@ -850,7 +850,7 @@ def parse_command_line_options():
     global DO_NOT_ASK_AND_ASSUME_YES
     DO_NOT_ASK_AND_ASSUME_YES = options.assume_yes
 
-    options.python = sys.executable
+    options.python = "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python"
 
     return options
 
